@@ -5,7 +5,7 @@ import Script from "next/script";
 
 const TALLY_FORM_ID = "GxVZ9o";
 
-const EMBED_URL = `https://tally.so/embed/${TALLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1`;
+const EMBED_URL = `https://tally.so/embed/${TALLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
 
 // 폼이 Hero·FinalCTA 두 곳에 임베드되므로 제출 리스너는 한 번만 등록한다
 let listenerAttached = false;
@@ -35,7 +35,7 @@ export default function TallyEmbed({ id }: { id?: string }) {
         src={EMBED_URL}
         loading="lazy"
         width="100%"
-        height={216}
+        height={356}
         frameBorder={0}
         title="얼리버드 사전예약 폼"
       />
