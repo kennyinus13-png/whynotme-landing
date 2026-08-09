@@ -2,7 +2,7 @@ import Image from "next/image";
 import TallyEmbed from "@/components/TallyEmbed";
 import PricingCta from "@/components/PricingCta";
 
-const PAIN_STEPS = ["지원", "무응답", "또 지원", "또 무응답"];
+const PAIN_STEPS = ["지원", "탈락", "원인 불분명"];
 
 const QUOTES = [
   "“내 레주메가 문제인지 비자가 문제인지 모르겠어요”",
@@ -91,7 +91,7 @@ export default function Home() {
             이게 당신 이야기라면,
           </h2>
           <p className="mt-3 text-center text-sm text-slate-600 md:text-base">
-            고치지 않고는 결과가 바뀌지 않습니다.
+            원인부터 알아야 다음 지원이 달라져요.
           </p>
           <div className="mt-8 flex flex-col items-center gap-2 md:flex-row md:justify-center md:gap-3">
             {PAIN_STEPS.map((step, i) => (
