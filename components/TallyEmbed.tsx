@@ -35,7 +35,7 @@ export default function TallyEmbed({ id }: { id?: string }) {
         src={EMBED_URL}
         loading="lazy"
         width="100%"
-        height={356}
+        height={620}
         frameBorder={0}
         title="얼리버드 사전예약 폼"
       />
