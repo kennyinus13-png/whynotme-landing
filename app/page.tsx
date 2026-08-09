@@ -1,6 +1,7 @@
 import Image from "next/image";
 import TallyEmbed from "@/components/TallyEmbed";
 import PricingCta from "@/components/PricingCta";
+import BetaCta from "@/components/BetaCta";
 
 const PAIN_STEPS = ["지원", "탈락", "원인 불분명"];
 
@@ -27,6 +28,13 @@ const HOW_STEPS = [
   "원인별 체크리스트를 받습니다",
 ];
 
+const BETA_TERMS = [
+  "탈락 원인 분석 리포트 무료 제공 (얼리버드 $4.9 → $0)",
+  "조건: 사용 후 솔직한 후기 1건 작성",
+  "후기는 동의한 범위에서 이니셜·학교/전공만 공개",
+  "선착순 10명 마감",
+];
+
 const PRICING_INCLUDES = [
   "비자/레주메 원인 판정 (신뢰도 + 근거)",
   "원인별 체크리스트",
@@ -45,6 +53,10 @@ const FAQ = [
   {
     q: "내 정보는 어디에 저장되나요?",
     a: "내 컴퓨터 안에만 저장됩니다. 어디로도 보내지 않기 때문에 저희조차 여러분의 기록을 볼 수 없어요. 인터넷에 올라가지 않으니 유출될 곳도 없습니다.",
+  },
+  {
+    q: "체험단은 무엇인가요?",
+    a: "출시 전 선착순 10명에게 분석 리포트를 무료로 드리고, 대신 솔직한 사용 후기 1건을 받습니다. 후기는 동의한 범위에서 이니셜·학교/전공만 공개해 랜딩에 게재됩니다. 사전예약 폼에서 '체험단으로도 참여할래요'를 선택하면 신청됩니다.",
   },
   {
     q: "이민 자문인가요?",
@@ -72,8 +84,11 @@ export default function Home() {
             비자인지 레주메인지부터 진단하세요
           </h1>
           <p className="mt-4 text-base text-slate-600 md:text-lg">
-            F-1 유학생의 지원 기록을 분석해 탈락 원인을 추정하고, 원인별로 지금
-            확인할 것을 알려드립니다
+            F-1 유학생이 탈락 메일을 붙여넣기만 하면 탈락 원인을 추정하고,
+            원인별로 지금 확인할 것을 알려드립니다
+          </p>
+          <p className="mt-3 text-sm font-medium text-slate-500">
+            USCIS 공식 H-1B 기록 기반 — 스폰서 기업 82,000곳 (2021–2023)
           </p>
           <span className="mt-4 inline-block rounded-full border border-navy px-4 py-1.5 text-sm font-semibold text-navy">
             탈락 원인 분석 리포트 — 정가 $9.9, 얼리버드 $4.9 (선착순)
@@ -127,7 +142,8 @@ export default function Home() {
             WhyNotMe는 이렇게 알려드립니다
           </h2>
           <p className="mt-3 text-center text-sm text-slate-600 md:text-base">
-            추측이 아닌 데이터 기반 근거와 체크리스트로 제시합니다.
+            추측이 아니라 기업 82,000곳의 실제 H-1B 스폰서 기록(USCIS
+            2021–2023)에 근거해 체크리스트로 제시합니다.
           </p>
           <div className="mx-auto mt-8 max-w-xl rounded-2xl bg-white p-6 shadow-md ring-1 ring-slate-200">
             <span className="inline-block rounded-full bg-amber-500 px-3 py-1 text-sm font-bold text-white">
@@ -215,8 +231,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. FAQ */}
+      {/* 6. BetaReviewers */}
       <section className="bg-slate-50 px-4 py-10 md:py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-2xl font-bold text-navy">
+            출시 전 체험단 10명을 모집합니다
+          </h2>
+          <p className="mt-3 text-sm text-slate-600 md:text-base">
+            무료로 분석 리포트를 받아보고, 솔직한 후기를 남겨주세요.
+          </p>
+          <div className="mx-auto mt-8 max-w-md rounded-2xl bg-white p-7 text-left shadow-md ring-1 ring-slate-200">
+            <ul className="space-y-2.5">
+              {BETA_TERMS.map((item) => (
+                <li key={item} className="flex gap-2 text-sm text-slate-700">
+                  <span aria-hidden className="font-bold text-navy">
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-xs leading-relaxed text-slate-500">
+              사전예약 폼에서 &lsquo;체험단으로도 참여할래요&rsquo;를 선택하면
+              신청됩니다.
+            </p>
+            <BetaCta />
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ */}
+      <section className="px-4 py-10 md:py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-2xl font-bold text-navy">자주 묻는 질문</h2>
           <div className="mt-8 space-y-3">
@@ -241,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. FinalCTA */}
+      {/* 8. FinalCTA */}
       <section className="bg-navy px-4 py-10 md:py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-bold text-white">
@@ -256,7 +301,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. Footer */}
+      {/* 9. Footer */}
       <footer className="px-4 py-8">
         <div className="mx-auto max-w-3xl text-center text-xs leading-relaxed text-slate-500">
           <p>
