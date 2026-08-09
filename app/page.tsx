@@ -67,9 +67,9 @@ export default function Home() {
             className="mx-auto mb-8 h-16 w-auto md:h-20"
           />
           <h1 className="text-3xl font-extrabold leading-snug text-navy md:text-4xl">
-            100군데 지원했는데 답이 없나요?
+            유학생 취업,
             <br />
-            비자 때문인지, 레주메 때문인지부터 알아야 합니다
+            비자인지 레주메인지부터 진단하세요
           </h1>
           <p className="mt-4 text-base text-slate-600 md:text-lg">
             F-1 유학생의 지원 기록을 분석해 탈락 원인을 추정하고, 원인별로 지금
