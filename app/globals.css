@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1f3864;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* next/font 클래스가 우선 적용됨 — 아래는 폰트 로드 실패 시 세리프 폴백 */
+body {
+  font-family: "Noto Serif KR", "Nanum Myeongjo", Georgia, "Times New Roman", serif;
+}
