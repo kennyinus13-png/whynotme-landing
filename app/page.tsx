@@ -44,11 +44,11 @@ const FAQ = [
   },
   {
     q: "내 정보는 어디에 저장되나요?",
-    a: "지원 기록은 내 브라우저 안(chrome.storage.local)에만 저장됩니다. 서버로 전송하지 않습니다.",
+    a: "내 컴퓨터 안에만 저장됩니다. 어디로도 보내지 않기 때문에 저희조차 여러분의 기록을 볼 수 없어요. 인터넷에 올라가지 않으니 유출될 곳도 없습니다.",
   },
   {
     q: "이민 자문인가요?",
-    a: "아닙니다. 참고용 분석 도구이며, 비자 관련 결정은 반드시 학교 DSO와 상담하세요.",
+    a: "아니에요. 탈락 이유를 짐작하는 데 도움을 주는 참고용 도구일 뿐이에요. 비자처럼 중요한 결정은 꼭 학교의 유학생 담당 선생님(DSO)과 상의하고 정하세요.",
   },
 ];
 
@@ -245,7 +245,7 @@ export default function Home() {
       <section className="bg-navy px-4 py-10 md:py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-bold text-white">
-            같은 실수로 다시 떨어지기 전에, 원인부터 확인하세요
+            원인을 분석하여 수정할 부분을 파악해 보세요
           </h2>
           <p className="mt-3 text-sm text-slate-300">
             얼리버드 $4.9 — 선착순 마감 후 정가 $9.9로 돌아갑니다
