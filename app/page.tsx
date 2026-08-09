@@ -88,8 +88,11 @@ export default function Home() {
       <section className="bg-slate-50 px-4 py-10 md:py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-center text-2xl font-bold text-navy">
-            이 루프, 익숙하지 않나요?
+            이게 당신 이야기라면,
           </h2>
+          <p className="mt-3 text-center text-sm text-slate-600 md:text-base">
+            고치지 않고는 결과가 바뀌지 않습니다.
+          </p>
           <div className="mt-8 flex flex-col items-center gap-2 md:flex-row md:justify-center md:gap-3">
             {PAIN_STEPS.map((step, i) => (
               <div key={step} className="flex flex-col items-center gap-2 md:flex-row md:gap-3">
