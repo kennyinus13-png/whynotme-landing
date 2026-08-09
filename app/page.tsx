@@ -126,6 +126,9 @@ export default function Home() {
           <h2 className="text-center text-2xl font-bold text-navy">
             WhyNotMe는 이렇게 알려드립니다
           </h2>
+          <p className="mt-3 text-center text-sm text-slate-600 md:text-base">
+            추측이 아닌 데이터 기반 근거와 체크리스트로 제시합니다.
+          </p>
           <div className="mx-auto mt-8 max-w-xl rounded-2xl bg-white p-6 shadow-md ring-1 ring-slate-200">
             <span className="inline-block rounded-full bg-amber-500 px-3 py-1 text-sm font-bold text-white">
               비자 원인 추정 · 신뢰도 72%
