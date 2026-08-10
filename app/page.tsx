@@ -5,29 +5,15 @@ import PricingCta from "@/components/PricingCta";
 const PIPELINE = [
   {
     step: "이런 걸 모아요",
-    items: [
-      "언제 지원했고, 언제 떨어졌는지",
-      "스폰서십 질문에 뭐라고 답했는지",
-      "지원했던 공고 내용",
-      "그 회사가 비자를 지원해 준 기록",
-      "내 이력서와 지금 비자 상태",
-    ],
+    desc: "지원·탈락 시점, 채용공고, 비자 질문 답변, 회사의 스폰서 이력과 내 이력서를 모아요.",
   },
   {
     step: "이렇게 살펴봐요",
-    items: [
-      "그 회사가 비자 있는 사람을 뽑아 왔는지",
-      "공고와 내 이력서가 얼마나 맞는지",
-      "지원하고 몇 시간 만에 떨어졌는지",
-    ],
+    desc: "회사의 비자 채용 이력, 공고와 내 경력의 적합도, 지원 후 탈락까지 걸린 시간을 함께 분석해요.",
   },
   {
     step: "이렇게 알려드려요",
-    items: [
-      "비자 문제인지, 이력서 문제인지 확률로",
-      "왜 그렇게 판단했는지 근거와 함께",
-      "다음에 지원할 회사와 고칠 부분",
-    ],
+    desc: "비자 또는 이력서가 원인일 가능성과 그 근거, 다음 지원에서 바꿔야 할 부분까지 알려드려요.",
   },
 ];
 
@@ -116,16 +102,9 @@ export default function Home() {
                 <p className="text-xl font-bold text-navy md:text-2xl">
                   {i + 1}. {col.step}
                 </p>
-                <ul className="mt-4 space-y-3">
-                  {col.items.map((item) => (
-                    <li
-                      key={item}
-                      className="text-lg leading-relaxed text-slate-700 md:text-xl"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-4 text-lg leading-relaxed text-slate-700 md:text-xl">
+                  {col.desc}
+                </p>
                 {i === 2 && (
                   <div className="mt-8 space-y-4">
                     {RESULT_BARS.map((row) => (
