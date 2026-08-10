@@ -28,6 +28,41 @@ const HOW_STEPS = [
   "원인별 체크리스트를 받습니다",
 ];
 
+const PIPELINE = [
+  {
+    step: "데이터 수집",
+    items: [
+      "지원 기록 — 지원 시점과 탈락 통보 시점 (탈락 메일 기준)",
+      "지원서의 스폰서십 질문에 뭐라고 답했는지",
+      "공고(JD) 원문",
+      "회사의 H-1B 스폰서 이력 (USCIS 공식 기록)",
+      "내 이력서와 비자 신분 (F-1 · CPT/OPT/STEM OPT)",
+    ],
+  },
+  {
+    step: "분석",
+    items: [
+      "Visa Score — 이 회사가 비자 필요한 지원자를 실제 채용해 왔는지",
+      "Resume Score — JD와 이력서가 얼마나 맞는지 (ATS 관점)",
+      "Rejection Pattern — 몇 시간 만에 탈락했는지 (자동 필터 vs 사람 검토)",
+    ],
+  },
+  {
+    step: "결과",
+    items: [
+      "원인별 확률을 도표로 — 왜 그렇게 판단했는지 근거와 함께",
+      "다음에 어떤 회사를 지원할지 제안",
+      "이력서 어디를 수정할지 제안",
+    ],
+  },
+];
+
+const RESULT_PREVIEW = [
+  { label: "비자 문제 가능성", pct: 65, color: "bg-navy" },
+  { label: "이력서 문제 가능성", pct: 30, color: "bg-amber-500" },
+  { label: "기타", pct: 5, color: "bg-slate-400" },
+];
+
 const BETA_TERMS = [
   "탈락 원인 분석 리포트 무료 제공 (얼리버드 $4.9 → $0)",
   "조건: 사용 후 솔직한 후기 1건 작성",
@@ -193,6 +228,52 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-relaxed text-slate-700">{step}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4.5 Pipeline: 수집 → 분석 → 결과 */}
+      <section className="px-4 py-10 md:py-16">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center text-2xl font-bold text-navy">
+            무엇을 모아, 어떻게 판정하나요
+          </h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {PIPELINE.map((col, i) => (
+              <div
+                key={col.step}
+                className="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200"
+              >
+                <p className="text-sm font-bold text-navy">
+                  {i + 1}. {col.step}
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {col.items.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm leading-relaxed text-slate-700">
+                      <span aria-hidden className="font-bold text-navy">·</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-6 max-w-md rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <p className="text-sm font-semibold text-slate-700">결과 화면 예시</p>
+            <div className="mt-3 space-y-2.5">
+              {RESULT_PREVIEW.map((row) => (
+                <div key={row.label} className="flex items-center gap-2 text-xs text-slate-600">
+                  <span className="w-28 shrink-0">{row.label}</span>
+                  <div className="h-3 flex-1 overflow-hidden rounded-full bg-slate-100">
+                    <div
+                      className={`h-full rounded-full ${row.color}`}
+                      style={{ width: `${row.pct}%` }}
+                    />
+                  </div>
+                  <strong className="w-9 text-right text-slate-800">{row.pct}%</strong>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
