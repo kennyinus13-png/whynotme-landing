@@ -173,7 +173,6 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <p className="mt-5 text-xs text-slate-400">예시 화면입니다</p>
           </div>
         </div>
       </section>
