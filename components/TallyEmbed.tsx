@@ -29,7 +29,7 @@ export default function TallyEmbed({ id }: { id?: string }) {
   }, []);
 
   return (
-    <div id={id} className="relative w-full overflow-hidden rounded-xl bg-white p-2 shadow-sm ring-1 ring-slate-200">
+    <div id={id} className="relative w-full overflow-hidden">
       {/* src 없이 data-tally-src만 두면 embed.js가 로드·동적 높이를 관리해
           폼 끝(제출 버튼 줄)이 항상 iframe 하단에 오고, 그 줄 오른쪽의
           Tally 무료 플랜 배지를 아래 흰색 패치가 가린다 */}
@@ -39,10 +39,10 @@ export default function TallyEmbed({ id }: { id?: string }) {
         width="100%"
         height={620}
         frameBorder={0}
-        title="얼리버드 사전예약 폼"
+        title="사전예약 폼"
       />
-      {/* 제출 버튼은 모든 폭에서 왼쪽 고정(끝 x≈206px)이라 left-56부터 덮으면 버튼은 안 가림 */}
-      <div aria-hidden className="absolute bottom-2 left-56 right-2 h-14 bg-white" />
+      {/* 제출 버튼은 모든 폭에서 왼쪽 고정(끝 x≈199px)이라 left-52부터 덮으면 버튼은 안 가림 */}
+      <div aria-hidden className="absolute bottom-0 left-52 right-0 h-14 bg-white" />
       <Script src="https://tally.so/widgets/embed.js" strategy="lazyOnload" />
     </div>
   );

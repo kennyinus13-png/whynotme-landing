@@ -12,9 +12,9 @@ export default function PricingCta() {
   return (
     <button
       onClick={onClick}
-      className="mt-6 w-full rounded-lg bg-navy px-6 py-3.5 text-base font-bold text-white transition hover:opacity-90"
+      className="mt-8 rounded-xl bg-slate-900 px-8 py-4 text-lg font-bold text-white transition hover:bg-slate-700"
     >
-      얼리버드 $4.9에 사전예약
+      먼저 써보기 →
     </button>
   );
 }
