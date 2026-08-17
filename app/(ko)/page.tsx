@@ -1,6 +1,8 @@
 import Image from "next/image";
 import TallyEmbed from "@/components/TallyEmbed";
 import PricingCta from "@/components/PricingCta";
+import LangSwitch from "@/components/LangSwitch";
+import { TALLY_FORM_ID_KO } from "@/lib/config";
 
 const PIPELINE = [
   {
@@ -56,14 +58,17 @@ export default function Home() {
       <div className="mx-auto max-w-[720px] py-16 md:py-24">
         {/* 인트로 */}
         <section>
-          <Image
-            src="/logo.png"
-            alt="와이낫미 — WHY NOT ME"
-            width={960}
-            height={286}
-            priority
-            className="h-10 w-auto md:h-12"
-          />
+          <div className="flex items-start justify-between gap-6">
+            <Image
+              src="/logo.png"
+              alt="와이낫미 — WHY NOT ME"
+              width={960}
+              height={286}
+              priority
+              className="h-10 w-auto md:h-12"
+            />
+            <LangSwitch href="/en" label="English" />
+          </div>
           <h1 className="mt-12 text-4xl font-extrabold leading-snug text-slate-900 md:text-5xl">
             왜 떨어졌는지 아무도
             <br />
@@ -83,7 +88,12 @@ export default function Home() {
 
         {/* 사전예약 폼 */}
         <section>
-          <TallyEmbed id="hero-form" />
+          <TallyEmbed
+            id="hero-form"
+            formId={TALLY_FORM_ID_KO}
+            lang="ko"
+            title="사전예약 폼"
+          />
           <p className="mt-6 text-base text-slate-500">
             USCIS H-1B 데이터 기반 · 초기 사용자 $4.90
           </p>
@@ -144,7 +154,7 @@ export default function Home() {
           <p className="mt-4 text-lg leading-relaxed text-slate-500">
             지금 결제하는 건 아니에요. 출시되면 이 가격으로 링크를 보내드려요.
           </p>
-          <PricingCta />
+          <PricingCta label="먼저 써보기 →" lang="ko" />
         </section>
 
         <Divider />
