@@ -1,8 +1,8 @@
 import Image from "next/image";
-import TallyEmbed from "@/components/TallyEmbed";
+import EmailCase from "@/components/EmailCase";
 import PricingCta from "@/components/PricingCta";
 import LangSwitch from "@/components/LangSwitch";
-import { TALLY_FORM_ID_EN, CONTACT_EMAIL } from "@/lib/config";
+import { CONTACT_EMAIL } from "@/lib/config";
 
 const PIPELINE = [
   {
@@ -86,18 +86,9 @@ export default function EnHome() {
 
         <Divider />
 
-        {/* Pre-order form */}
+        {/* Send your case straight to email — no questionnaire */}
         <section>
-          <TallyEmbed
-            id="hero-form"
-            formId={TALLY_FORM_ID_EN}
-            lang="en"
-            title="Pre-order form"
-            fallback={{
-              line: "Send us one rejection — the company, the role, and how long it took — and we'll analyze it for free. First 10 cases.",
-              cta: "Email your case →",
-            }}
-          />
+          <EmailCase id="hero-form" />
           <p className="mt-6 text-base text-slate-500">
             Built on USCIS H-1B data · $4.90 for early users
           </p>
