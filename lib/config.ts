@@ -5,8 +5,8 @@ export const CLARITY_ID = "xzpono8cgx";
 export const SITE_URL = "https://whynotme-landing.vercel.app";
 export const CONTACT_EMAIL = "kennyinus13@gmail.com";
 
-// 한국어 폼(운영 중). 이메일 필수 + 선택질문 + 장문 자유입력 + 체험단 체크박스
+// Tally 폼은 두 언어 모두 랜딩에서 쓰지 않는다(사용자 지시, 2026-08-18) —
+// 선택지("비자 정보 부족 / 레주메 피드백 없음 / 이메일 문의")를 고르는 단계 없이
+// 이메일 칸과 내용 칸만 있는 components/EmailCase.tsx 로 바로 메일을 띄운다.
+// 폼 자체는 살아 있으므로(tally.so/r/GxVZ9o) 되돌릴 때를 위해 ID만 남겨 둔다.
 export const TALLY_FORM_ID_KO = "GxVZ9o";
-
-// 영어 쪽은 Tally 폼을 쓰지 않는다 — 선택지 질문 없이 사례를 붙여넣고
-// 바로 메일을 띄우는 components/EmailCase.tsx 를 쓴다(사용자 지시, 2026-08-18).

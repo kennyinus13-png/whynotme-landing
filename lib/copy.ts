@@ -12,6 +12,23 @@ export type Copy = {
   heroSub: string[];
   heroNote: string;
   formNote: string;
+  /** 이메일 문의 카드 — 선택지 폼 대신 이메일 칸·내용 칸만 두고 바로 메일을 띄운다 */
+  contact: {
+    title: string;
+    lead: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    bodyLabel: string;
+    bodyPlaceholder: string;
+    send: string;
+    copyIdle: string;
+    copyDone: string;
+    copyManual: string;
+    /** {email} 자리에 받는 주소가 들어간다 */
+    note: string;
+    /** 메일 제목 */
+    subject: string;
+  };
   howTitle: string;
   pipeline: { step: string; desc: string }[];
   bars: { label: string; pct: number }[];
@@ -39,6 +56,24 @@ const ko: Copy = {
   heroSub: ["비자인지 레주메인지,", "지원 기록을 보고 찾아드립니다."],
   heroNote: "USCIS H-1B 데이터 + Job Description + Resume 분석",
   formNote: "USCIS H-1B 데이터 기반 · 초기 사용자 $4.90",
+  contact: {
+    title: "이메일 문의",
+    lead: "탈락 사례든 궁금한 점이든 여기 적어서 그대로 보내주세요. 고를 것 없이 바로 답장 드려요.",
+    emailLabel: "답장 받을 이메일",
+    emailPlaceholder: "you@school.edu",
+    bodyLabel: "내용",
+    bodyPlaceholder: `회사: Stripe
+직무: Software Engineer Intern
+지원: 8월 3일 오후 2:40
+탈락: 8월 3일 오후 6:21
+그 밖에: 지원서에 스폰서십이 필요하냐는 질문이 있었어요`,
+    send: "이메일로 보내기 →",
+    copyIdle: "또는 복사하기",
+    copyDone: "복사했어요",
+    copyManual: "선택했어요 — Ctrl/Cmd+C를 눌러주세요",
+    note: "누르면 이 내용 그대로 담긴 메일 앱이 열려요. 받는 사람은 {email}이고, 이 페이지에서 따로 전송되는 건 없어요.",
+    subject: "WhyNotMe 문의",
+  },
   howTitle: "어떻게 찾아내나요",
   pipeline: [
     {
@@ -82,7 +117,7 @@ const ko: Copy = {
     },
     {
       q: "무료 초기 테스트는 뭔가요?",
-      a: "출시 전에 선착순 10명에게 분석을 무료로 해드리고, 대신 솔직한 후기 1건을 받아요. 후기는 동의한 범위에서 이니셜·학교/전공만 공개돼요. 폼에서 체크박스를 선택하면 신청됩니다.",
+      a: "출시 전에 선착순 10명에게 분석을 무료로 해드리고, 대신 솔직한 후기 1건을 받아요. 후기는 동의한 범위에서 이니셜·학교/전공만 공개돼요. 위 문의 칸에 \"체험단 신청\"이라고 적어 보내주시면 됩니다.",
     },
     {
       q: "이민 자문인가요?",
@@ -104,6 +139,24 @@ const en: Copy = {
   ],
   heroNote: "USCIS H-1B data + job description + resume analysis",
   formNote: "Built on USCIS H-1B data · $4.90 for early users",
+  contact: {
+    title: "Email us",
+    lead: "A rejection case or any question — write it here and send it as is. Nothing to pick from, we just reply.",
+    emailLabel: "Your email (so we can reply)",
+    emailPlaceholder: "you@school.edu",
+    bodyLabel: "Your message",
+    bodyPlaceholder: `Company: Stripe
+Role: Software Engineer Intern
+Applied: Aug 3, 2:40 PM
+Rejected: Aug 3, 6:21 PM
+Anything else: the application asked if I need sponsorship`,
+    send: "Send by email →",
+    copyIdle: "or copy it",
+    copyDone: "Copied",
+    copyManual: "Selected — press Ctrl/Cmd+C",
+    note: "This opens your mail app with everything filled in, addressed to {email}. Nothing is sent from this page.",
+    subject: "WhyNotMe — question / rejection case",
+  },
   howTitle: "How we figure it out",
   pipeline: [
     {
@@ -147,7 +200,7 @@ const en: Copy = {
     },
     {
       q: "What is the free early test?",
-      a: "Before launch we analyze 10 cases for free, first come first served, in exchange for one honest review. Reviews show only initials and school or major, and only what you agree to.",
+      a: "Before launch we analyze 10 cases for free, first come first served, in exchange for one honest review. Reviews show only initials and school or major, and only what you agree to. Just write \"early test\" in the message above.",
     },
     {
       q: "Is this immigration advice?",

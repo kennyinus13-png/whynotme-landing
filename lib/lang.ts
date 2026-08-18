@@ -20,13 +20,15 @@ export function currentLang(): Lang {
   return document.documentElement.dataset.lang === "en" ? "en" : "ko";
 }
 
-/** 언어를 바꾼다. 문구 교체는 CSS(:has(data-lang))가 하므로 리렌더가 없다 —
- *  여기서는 문서 속성·저장·탭 제목·GA4 이벤트만 챙긴다. */
-export function setLang(lang: Lang, title: string) {
+/** 언어를 바꾼다. 문구 교체는 CSS가 하므로 리렌더가 없다 —
+ *  여기서는 문서 속성·저장·GA4 이벤트만 챙긴다.
+ *  탭 제목은 건드리지 않는다: React 19가 metadata의 <title>을 소유해서
+ *  프로덕션 빌드에서는 커밋 때 되돌려 놓는다(dev 와 동작이 갈렸다).
+ *  주소가 하나뿐이라 제목도 두 언어를 같이 적은 한 벌로 둔다. */
+export function setLang(lang: Lang) {
   const el = document.documentElement;
   el.dataset.lang = lang;
   el.lang = lang;
-  document.title = title;
   try {
     localStorage.setItem(LANG_KEY, lang);
   } catch {}

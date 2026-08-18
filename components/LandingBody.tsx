@@ -1,10 +1,9 @@
 import Image from "next/image";
-import TallyEmbed from "@/components/TallyEmbed";
 import EmailCase from "@/components/EmailCase";
 import PricingCta from "@/components/PricingCta";
 import LangToggle from "@/components/LangToggle";
 import { COPY, type Lang } from "@/lib/copy";
-import { TALLY_FORM_ID_KO, CONTACT_EMAIL } from "@/lib/config";
+import { CONTACT_EMAIL } from "@/lib/config";
 
 // 두 언어가 같은 마크업을 쓴다. 이 파일은 문구를 모르고 lib/copy.ts 사전만 받아 그린다.
 // 페이지에는 ko·en 두 벌이 다 들어가고 <html data-lang>에 따라 CSS가 한쪽만 보여준다.
@@ -19,7 +18,7 @@ export default function LandingBody({ lang }: { lang: Lang }) {
   const c = COPY[lang];
   // 두 언어 블록이 한 문서에 같이 있으므로 id가 겹치면 안 된다.
   // CTA가 스크롤로 찾아가는 대상도 언어별로 갈라 둔다.
-  const formId = `hero-form-${lang}`;
+  const formId = `contact-${lang}`;
 
   return (
     <main className="px-5">
@@ -58,18 +57,9 @@ export default function LandingBody({ lang }: { lang: Lang }) {
 
         <Divider />
 
-        {/* 신청 — 한국어는 Tally 폼, 영어는 선택지 없이 바로 메일을 띄우는 입력창 */}
+        {/* 문의 — 두 언어 모두 선택지 폼 없이 바로 메일을 띄우는 입력 카드 하나 */}
         <section>
-          {lang === "ko" ? (
-            <TallyEmbed
-              id={formId}
-              formId={TALLY_FORM_ID_KO}
-              lang="ko"
-              title="사전예약 폼"
-            />
-          ) : (
-            <EmailCase id={formId} />
-          )}
+          <EmailCase id={formId} lang={lang} />
           <p className="mt-6 text-base text-slate-500">{c.formNote}</p>
         </section>
 

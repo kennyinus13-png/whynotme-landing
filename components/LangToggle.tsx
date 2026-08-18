@@ -1,6 +1,6 @@
 "use client";
 
-import { COPY, type Lang } from "@/lib/copy";
+import type { Lang } from "@/lib/copy";
 import { setLang } from "@/lib/lang";
 
 // 토글은 언어 블록 안에 하나씩 들어간다. 보이는 블록이 곧 현재 언어라
@@ -30,7 +30,7 @@ export default function LangToggle({ current }: { current: Lang }) {
           ) : (
             <button
               type="button"
-              onClick={() => setLang(other, COPY[other].title)}
+              onClick={() => setLang(other)}
               className={cls(l)}
             >
               {l === "ko" ? "한국어" : "English"}
