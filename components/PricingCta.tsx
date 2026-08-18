@@ -1,11 +1,16 @@
 "use client";
 
+import type { Lang } from "@/lib/copy";
+
 export default function PricingCta({
   label,
   lang,
+  targetId,
 }: {
   label: string;
-  lang: "ko" | "en";
+  lang: Lang;
+  /** 한 문서에 두 언어 폼이 같이 있으므로 스크롤 대상을 언어별로 받는다 */
+  targetId: string;
 }) {
   const onClick = () => {
     (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.(
@@ -13,7 +18,7 @@ export default function PricingCta({
       "pricing_cta_click",
       { page_language: lang }
     );
-    document.getElementById("hero-form")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

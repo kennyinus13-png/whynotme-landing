@@ -8,5 +8,5 @@ export const CONTACT_EMAIL = "kennyinus13@gmail.com";
 // 한국어 폼(운영 중). 이메일 필수 + 선택질문 + 장문 자유입력 + 체험단 체크박스
 export const TALLY_FORM_ID_KO = "GxVZ9o";
 
-// 영어(/en)는 Tally 폼을 쓰지 않는다 — 선택지 질문 없이 사례를 붙여넣고
+// 영어 쪽은 Tally 폼을 쓰지 않는다 — 선택지 질문 없이 사례를 붙여넣고
 // 바로 메일을 띄우는 components/EmailCase.tsx 를 쓴다(사용자 지시, 2026-08-18).

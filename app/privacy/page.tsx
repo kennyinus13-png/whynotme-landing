@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LangLock from "@/components/LangLock";
 
 // 구글 플레이·앱스토어 등록에 개인정보처리방침 URL이 필수라 만든 페이지다.
 // 앱이 실제로 아무것도 수집하지 않으므로 방침도 그 사실만 정확히 적는다.
@@ -14,6 +15,7 @@ const UPDATED = "2026-08-16";
 export default function Privacy() {
   return (
     <main className="mx-auto max-w-[720px] px-5 py-16">
+      <LangLock value="ko" />
       <Link href="/" className="text-sm text-slate-500 underline">
         ← WhyNotMe
       </Link>
